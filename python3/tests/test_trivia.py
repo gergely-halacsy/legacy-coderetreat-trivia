@@ -1,5 +1,6 @@
 import io
 import sys
+import json
 from contextlib import contextmanager
 
 from approvaltests.approvals import verify
@@ -108,3 +109,9 @@ def test_was_correctly_answered_after_wrong_answer_out_of_penalty_box():
         result = game.was_correctly_answered()
         assert result
         verify(output.getvalue())
+
+
+def test_init():
+    game = Game()
+    game_json = json.dumps(vars(game), indent=4, sort_keys=True)
+    verify(game_json)
