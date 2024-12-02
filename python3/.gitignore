@@ -2,3 +2,4 @@
 __pycache__
 .idea
 .approval_tests_temp
+.coverage

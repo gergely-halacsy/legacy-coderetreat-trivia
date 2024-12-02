@@ -1,12 +1,10 @@
-from random import randrange
-
-from trivia import Game
-import pytest
-from contextlib import contextmanager
 import io
 import sys
+from contextlib import contextmanager
 
 from approvaltests.approvals import verify
+
+from trivia import Game
 
 
 @contextmanager
@@ -46,8 +44,10 @@ def test_is_playable_true():
 
 
 def test_roll():
+    game = Game()
+    game.add('Chet')
+    game.add('Pat')
+    game.add('Sue')
     with redirect_stdout() as output:
-        game = Game()
-        game.add('Chet')
-        game.add('Pat')
-        game.add('Sue')
+        game.roll(5)
+        verify(output.getvalue())
