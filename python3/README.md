@@ -3,5 +3,4 @@ To use the code:
 - Install the poetry env with `poetry install`
 
 To run the tests:
-- `poetry shell`
-- `pytest`
+- `PYTHONPATH=. poetry run pytest`
