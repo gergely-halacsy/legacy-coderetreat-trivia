@@ -145,3 +145,11 @@ def test_was_correctly_answered_after_wrong_answer_out_of_penalty_box():
         result = game.was_correctly_answered()
         assert result
         verify(output.getvalue())
+
+
+def test_was_correctly_answered_right_result():
+    game = Game()
+    game.add('Chet')
+    with redirect_stdout() as output:
+        game.was_correctly_answered()
+        assert output.getvalue() == "The answer was correct!\nChet now has 1 Gold Coins.\n"
