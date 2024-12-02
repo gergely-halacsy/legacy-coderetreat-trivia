@@ -4,7 +4,7 @@ from i18n import LANGUAGES, I18n
 
 
 class Game:
-    def __init__(self, lang:LANGUAGES='de'):
+    def __init__(self, lang:LANGUAGES='en'):
         self.players = []
         self.places = []
         self.purses = []
@@ -25,11 +25,12 @@ class Game:
             self.sports_questions.append(f"{self.i18n.t('Sports Question')} %s" % i)
             self.rock_questions.append(self.create_rock_question(i))
 
-    def create_rock_question(self, index):
+    @staticmethod
+    def create_rock_question(index):
         return "Rock Question %s" % index
 
     def is_playable(self):
-        return self.how_many_players >= 2
+        return self.num_players >= 2
 
     def add(self, player_name):
         self.players.append(player_name)
@@ -42,12 +43,12 @@ class Game:
         return True
 
     @property
-    def how_many_players(self):
+    def num_players(self):
         return len(self.players)
 
     @property
     def num_fields(self):
-        return 16 if self.lang == 'de' else 12
+        return 16 if self.i18n.lang == 'de' else 12
 
     def roll(self, roll):
         if not self.is_playable():
@@ -91,19 +92,8 @@ class Game:
 
     @property
     def _current_category(self):
-        if self.places[self.current_player] == 0: return 'Pop'
-        if self.places[self.current_player] == 4: return 'Pop'
-        if self.places[self.current_player] == 8: return 'Pop'
-        if self.places[self.current_player] == 12: return 'Pop'
-        if self.places[self.current_player] == 1: return 'Science'
-        if self.places[self.current_player] == 5: return 'Science'
-        if self.places[self.current_player] == 9: return 'Science'
-        if self.places[self.current_player] == 13: return 'Science'
-        if self.places[self.current_player] == 2: return 'Sports'
-        if self.places[self.current_player] == 6: return 'Sports'
-        if self.places[self.current_player] == 10: return 'Sports'
-        if self.places[self.current_player] == 14: return 'Sports'
-        return 'Rock'
+        category_map = {0: 'Pop', 1: 'Science', 2: 'Sports'}
+        return category_map.get(self.places[self.current_player] % 4, 'Rock')
 
     def was_correctly_answered(self):
         if self.in_penalty_box[self.current_player] and not self.is_getting_out_of_penalty_box:

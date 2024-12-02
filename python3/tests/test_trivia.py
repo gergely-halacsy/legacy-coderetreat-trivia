@@ -49,10 +49,10 @@ def test_in_penalty_box_after_add():
     assert game.in_penalty_box[0] == False
 
 
-def test_how_many_players_after_add():
+def test_num_players_after_add():
     game = Game()
     game.add('Chet')
-    assert game.how_many_players == 1
+    assert game.num_players == 1
 
 
 def test_num_fields_default():
@@ -73,8 +73,7 @@ def test_adding_player():
 
 
 def test_create_rock_question():
-    game = Game()
-    created_question = game.create_rock_question(42)
+    created_question = Game.create_rock_question(42)
     verify(created_question)
 
 
