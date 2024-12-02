@@ -29,7 +29,7 @@ def test_adding_player():
 def test_create_rock_question():
     game = Game()
     created_question = game.create_rock_question(42)
-    assert created_question == "Rock Question 42"
+    verify(created_question)
 
 
 def test_is_playable_false():
