@@ -1,11 +1,5 @@
 {
     "current_player": 0,
-    "i18n": {
-        "lang": "en"
-    },
-    "in_penalty_box": [],
-    "is_getting_out_of_penalty_box": false,
-    "places": [],
     "players": [],
     "pop_questions": [
         "Pop Question 0",
@@ -59,7 +53,6 @@
         "Pop Question 48",
         "Pop Question 49"
     ],
-    "purses": [],
     "rock_questions": [
         "Rock Question 0",
         "Rock Question 1",
