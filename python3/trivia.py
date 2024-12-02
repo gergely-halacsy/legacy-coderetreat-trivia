@@ -56,8 +56,8 @@ class Game:
                     self.places[self.current_player] = self.places[self.current_player] - 12
 
                 print(self.players[self.current_player] + \
-                            '\'s new location is ' + \
-                            str(self.places[self.current_player]))
+                      '\'s new location is ' + \
+                      str(self.places[self.current_player]))
                 print("The category is %s" % self._current_category)
                 self._ask_question()
             else:
@@ -69,8 +69,8 @@ class Game:
                 self.places[self.current_player] = self.places[self.current_player] - 12
 
             print(self.players[self.current_player] + \
-                        '\'s new location is ' + \
-                        str(self.places[self.current_player]))
+                  '\'s new location is ' + \
+                  str(self.places[self.current_player]))
             print("The category is %s" % self._current_category)
             self._ask_question()
 
@@ -96,12 +96,12 @@ class Game:
     def was_correctly_answered(self):
         if self.in_penalty_box[self.current_player]:
             if self.is_getting_out_of_penalty_box:
-                print('Answer was correct!!!!')
+                print('The answer was correct!')
                 self.purses[self.current_player] += 1
                 print(self.players[self.current_player] + \
-                    ' now has ' + \
-                    str(self.purses[self.current_player]) + \
-                    ' Gold Coins.')
+                      ' now has ' + \
+                      str(self.purses[self.current_player]) + \
+                      ' Gold Coins.')
 
                 winner = self._did_player_win()
                 self.current_player += 1
@@ -112,17 +112,13 @@ class Game:
                 self.current_player += 1
                 if self.current_player == len(self.players): self.current_player = 0
                 return True
-
-
-
         else:
-
             print("The answer was correct!")
             self.purses[self.current_player] += 1
             print(self.players[self.current_player] + \
-                ' now has ' + \
-                str(self.purses[self.current_player]) + \
-                ' Gold Coins.')
+                  ' now has ' + \
+                  str(self.purses[self.current_player]) + \
+                  ' Gold Coins.')
 
             winner = self._did_player_win()
             self.current_player += 1
