@@ -153,3 +153,18 @@ def test_was_correctly_answered_right_result():
     with redirect_stdout() as output:
         game.was_correctly_answered()
         assert output.getvalue() == "The answer was correct!\nChet now has 1 Gold Coins.\n"
+
+
+def test_add_many_player():
+    game = Game()
+
+    game.add('Chet')
+    game.add('Pat')
+    game.add('Sue')
+    game.add('John')
+    game.add('Doe')
+
+    with redirect_stdout() as output:
+        game.add('Jane')
+        assert output.getvalue() == "Jane was added\nThey are player number 6\n"
+
