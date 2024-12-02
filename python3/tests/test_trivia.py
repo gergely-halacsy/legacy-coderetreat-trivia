@@ -3,6 +3,7 @@ import sys
 import json
 from contextlib import contextmanager
 
+import pytest
 from approvaltests.approvals import verify
 
 from trivia import Game
@@ -168,3 +169,9 @@ def test_add_many_player():
         game.add('Jane')
         assert output.getvalue() == "Jane was added with number 6\n"
 
+
+def test_start_game_with_one_player():
+    game = Game()
+    game.add('Chet')
+    with pytest.raises(Exception, match="Not enough players. At least 2 players are required to start the game."):
+        game.roll(5)
