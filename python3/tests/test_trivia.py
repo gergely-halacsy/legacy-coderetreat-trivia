@@ -18,6 +18,42 @@ def redirect_stdout():
         sys.stdout = sys.__stdout__
 
 
+def test_init():
+    game = Game()
+    game_json = json.dumps(vars(game), indent=4, sort_keys=True)
+    verify(game_json)
+
+
+def test_players_after_add():
+    game = Game()
+    game.add('Chet')
+    assert game.players[0] == 'Chet'
+
+
+def test_places_after_add():
+    game = Game()
+    game.add('Chet')
+    assert game.places[0] == 0
+
+
+def test_purses_after_add():
+    game = Game()
+    game.add('Chet')
+    assert game.purses[0] == 0
+
+
+def test_in_penalty_box_after_add():
+    game = Game()
+    game.add('Chet')
+    assert game.in_penalty_box[0] == False
+
+
+def test_how_many_players_after_add():
+    game = Game()
+    game.add('Chet')
+    assert game.how_many_players == 1
+
+
 def test_adding_player():
     with redirect_stdout() as output:
         game = Game()
@@ -109,9 +145,3 @@ def test_was_correctly_answered_after_wrong_answer_out_of_penalty_box():
         result = game.was_correctly_answered()
         assert result
         verify(output.getvalue())
-
-
-def test_init():
-    game = Game()
-    game_json = json.dumps(vars(game), indent=4, sort_keys=True)
-    verify(game_json)
