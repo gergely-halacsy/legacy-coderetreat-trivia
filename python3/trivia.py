@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 
-from typing import Literal
+from i18n import LANGUAGES, I18n
 
 
-LANGUAGES = Literal['en', 'de', 'hu' ]
 class Game:
-    def __init__(self, lang:LANGUAGES='en'):
+    def __init__(self, lang:LANGUAGES='de'):
         self.players = []
         self.places = []
         self.purses = []
         self.in_penalty_box = []
-        self.lang = lang
+        self.i18n = I18n(lang)
 
         self.pop_questions = []
         self.science_questions = []
@@ -21,9 +20,9 @@ class Game:
         self.is_getting_out_of_penalty_box = False
 
         for i in range(50):
-            self.pop_questions.append("Pop Question %s" % i)
-            self.science_questions.append("Science Question %s" % i)
-            self.sports_questions.append("Sports Question %s" % i)
+            self.pop_questions.append(f"{self.i18n.t('Pop Question')} %s" % i)
+            self.science_questions.append(f"{self.i18n.t('Science Question')} %s" % i)
+            self.sports_questions.append(f"{self.i18n.t('Sports Question')} %s" % i)
             self.rock_questions.append(self.create_rock_question(i))
 
     def create_rock_question(self, index):
