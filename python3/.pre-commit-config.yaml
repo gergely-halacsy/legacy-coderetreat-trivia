@@ -1,0 +1,10 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: bash -c "cd python3 && PYTHONPATH=. poetry run pytest --approvaltests-use-reporter='PythonNative'"
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [commit]
