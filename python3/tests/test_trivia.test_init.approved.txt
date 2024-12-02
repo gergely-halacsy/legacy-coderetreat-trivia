@@ -1,22 +1,8 @@
 {
     "current_player": 0,
-    "in_penalty_box": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ],
+    "in_penalty_box": [],
     "is_getting_out_of_penalty_box": false,
-    "places": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ],
+    "places": [],
     "players": [],
     "pop_questions": [
         "Pop Question 0",
@@ -70,14 +56,7 @@
         "Pop Question 48",
         "Pop Question 49"
     ],
-    "purses": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ],
+    "purses": [],
     "rock_questions": [
         "Rock Question 0",
         "Rock Question 1",

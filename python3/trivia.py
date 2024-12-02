@@ -3,9 +3,9 @@
 class Game:
     def __init__(self):
         self.players = []
-        self.places = [0] * 6
-        self.purses = [0] * 6
-        self.in_penalty_box = [0] * 6
+        self.places = []
+        self.purses = []
+        self.in_penalty_box = []
 
         self.pop_questions = []
         self.science_questions = []
@@ -29,9 +29,9 @@ class Game:
 
     def add(self, player_name):
         self.players.append(player_name)
-        self.places[self.how_many_players] = 0
-        self.purses[self.how_many_players] = 0
-        self.in_penalty_box[self.how_many_players] = False
+        self.places.append(0)
+        self.purses.append(0)
+        self.in_penalty_box.append(False)
 
         print(player_name + " was added")
         print("They are player number %s" % len(self.players))
