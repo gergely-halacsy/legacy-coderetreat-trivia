@@ -42,6 +42,8 @@ class Game:
         return len(self.players)
 
     def roll(self, roll):
+        if not self.is_playable(): 
+            raise ValueError("Not enough players. At least 2 players are required to start the game.")
         print("%s is the current player" % self.players[self.current_player])
         print("They have rolled a %s" % roll)
 

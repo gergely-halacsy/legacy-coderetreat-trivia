@@ -173,5 +173,5 @@ def test_add_many_player():
 def test_start_game_with_one_player():
     game = Game()
     game.add('Chet')
-    with pytest.raises(Exception, match="Not enough players. At least 2 players are required to start the game."):
+    with pytest.raises(ValueError, match="Not enough players. At least 2 players are required to start the game."):
         game.roll(5)
