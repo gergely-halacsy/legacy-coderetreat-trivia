@@ -29,25 +29,25 @@ def test_init():
 def test_players_after_add():
     game = Game()
     game.add('Chet')
-    assert game.players[0] == 'Chet'
+    assert game.players[0].name == 'Chet'
 
 
 def test_places_after_add():
     game = Game()
     game.add('Chet')
-    assert game.places[0] == 0
+    assert game.players[0].place == 0
 
 
 def test_purses_after_add():
     game = Game()
     game.add('Chet')
-    assert game.purses[0] == 0
+    assert game.players[0].purse == 0
 
 
 def test_in_penalty_box_after_add():
     game = Game()
     game.add('Chet')
-    assert game.in_penalty_box[0] == False
+    assert game.players[0].in_penalty_box == False
 
 
 def test_num_players_after_add():
@@ -58,7 +58,7 @@ def test_num_players_after_add():
 
 def test_num_fields_default():
     game = Game()
-    assert game.num_fields == 12
+    assert game.num_fields == 16
 
 
 def test_num_fields_de():
