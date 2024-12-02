@@ -51,3 +51,21 @@ def test_roll():
     with redirect_stdout() as output:
         game.roll(5)
         verify(output.getvalue())
+
+
+def test_roll_in_penalty_box():
+    game = Game()
+    game.add('Chet')
+    game.wrong_answer()
+    with redirect_stdout() as output:
+        game.roll(4)
+        verify(output.getvalue())
+
+
+def test_roll_in_penalty_box_get_out():
+    game = Game()
+    game.add('Chet')
+    game.wrong_answer()
+    with redirect_stdout() as output:
+        game.roll(5)
+        verify(output.getvalue())
