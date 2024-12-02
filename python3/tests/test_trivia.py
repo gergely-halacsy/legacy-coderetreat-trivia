@@ -78,3 +78,11 @@ def test_wrong_answer():
         result = game.wrong_answer()
         verify(output.getvalue())
         assert result
+
+def test_was_correctly_answered():
+    game = Game()
+    game.add('Chet')
+    with redirect_stdout() as output:
+        result = game.was_correctly_answered()
+        assert result
+        verify(output.getvalue())
