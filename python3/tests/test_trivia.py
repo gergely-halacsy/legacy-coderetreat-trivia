@@ -166,5 +166,5 @@ def test_add_many_player():
 
     with redirect_stdout() as output:
         game.add('Jane')
-        assert output.getvalue() == "Jane was added\nThey are player number 6\n"
+        assert output.getvalue() == "Jane was added with number 6\n"
 

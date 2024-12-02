@@ -33,8 +33,7 @@ class Game:
         self.purses.append(0)
         self.in_penalty_box.append(False)
 
-        print(player_name + " was added")
-        print("They are player number %s" % len(self.players))
+        print(f"{player_name} was added with number {len(self.players)}")
 
         return True
 
