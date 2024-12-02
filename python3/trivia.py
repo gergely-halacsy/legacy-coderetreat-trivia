@@ -45,8 +45,12 @@ class Game:
     def how_many_players(self):
         return len(self.players)
 
+    @property
+    def num_fields(self):
+        return 16 if self.lang == 'de' else 12
+
     def roll(self, roll):
-        if not self.is_playable(): 
+        if not self.is_playable():
             raise ValueError("Not enough players. At least 2 players are required to start the game.")
         print("%s is the current player" % self.players[self.current_player])
         print("They have rolled a %s" % roll)
@@ -57,8 +61,8 @@ class Game:
 
                 print("%s is getting out of the penalty box" % self.players[self.current_player])
                 self.places[self.current_player] = self.places[self.current_player] + roll
-                if self.places[self.current_player] > 11:
-                    self.places[self.current_player] = self.places[self.current_player] - 12
+                if self.places[self.current_player] > self.num_fields - 1:
+                    self.places[self.current_player] = self.places[self.current_player] - self.num_fields
 
                 print(self.players[self.current_player] + \
                       '\'s new location is ' + \
@@ -90,12 +94,15 @@ class Game:
         if self.places[self.current_player] == 0: return 'Pop'
         if self.places[self.current_player] == 4: return 'Pop'
         if self.places[self.current_player] == 8: return 'Pop'
+        if self.places[self.current_player] == 12: return 'Pop'
         if self.places[self.current_player] == 1: return 'Science'
         if self.places[self.current_player] == 5: return 'Science'
         if self.places[self.current_player] == 9: return 'Science'
+        if self.places[self.current_player] == 13: return 'Science'
         if self.places[self.current_player] == 2: return 'Sports'
         if self.places[self.current_player] == 6: return 'Sports'
         if self.places[self.current_player] == 10: return 'Sports'
+        if self.places[self.current_player] == 14: return 'Sports'
         return 'Rock'
 
     def was_correctly_answered(self):

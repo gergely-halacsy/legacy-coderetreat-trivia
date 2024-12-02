@@ -2,6 +2,7 @@
     "current_player": 0,
     "in_penalty_box": [],
     "is_getting_out_of_penalty_box": false,
+    "lang": "en",
     "places": [],
     "players": [],
     "pop_questions": [
