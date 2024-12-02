@@ -6,6 +6,7 @@ from contextlib import contextmanager
 import pytest
 from approvaltests.approvals import verify
 
+from i18n import I18nEncoder
 from trivia import Game
 
 
@@ -21,7 +22,7 @@ def redirect_stdout():
 
 def test_init():
     game = Game()
-    game_json = json.dumps(vars(game), indent=4, sort_keys=True)
+    game_json = json.dumps(vars(game), indent=4, sort_keys=True, cls=I18nEncoder)
     verify(game_json)
 
 
