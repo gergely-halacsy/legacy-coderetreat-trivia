@@ -79,6 +79,7 @@ def test_wrong_answer():
         verify(output.getvalue())
         assert result
 
+
 def test_was_correctly_answered():
     game = Game()
     game.add('Chet')
@@ -86,7 +87,8 @@ def test_was_correctly_answered():
         result = game.was_correctly_answered()
         assert result
         verify(output.getvalue())
-        
+
+
 def test_was_correctly_answered_after_wrong_answer():
     game = Game()
     game.add('Chet')
@@ -96,11 +98,12 @@ def test_was_correctly_answered_after_wrong_answer():
         assert result
         verify(output.getvalue())
 
+
 def test_was_correctly_answered_after_wrong_answer_out_of_penalty_box():
     game = Game()
     game.add('Chet')
     game.wrong_answer()
-    game.is_getting_out_of_penalty_box = True 
+    game.is_getting_out_of_penalty_box = True
     with redirect_stdout() as output:
         result = game.was_correctly_answered()
         assert result
