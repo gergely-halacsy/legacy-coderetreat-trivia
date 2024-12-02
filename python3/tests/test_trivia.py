@@ -55,6 +55,16 @@ def test_how_many_players_after_add():
     assert game.how_many_players == 1
 
 
+def test_num_fields_default():
+    game = Game()
+    assert game.num_fields == 12
+
+
+def test_num_fields_de():
+    game = Game('de')
+    assert game.num_fields == 16
+
+
 def test_adding_player():
     with redirect_stdout() as output:
         game = Game()
