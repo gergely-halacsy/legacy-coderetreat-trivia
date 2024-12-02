@@ -3,15 +3,14 @@
 from typing import Literal
 
 
-LANGUAGES = Literal["en", "de", "hu"]
-
-
+LANGUAGES = Literal['en', 'de', 'hu' ]
 class Game:
-    def __init__(self, lang: LANGUAGES = "en"):
+    def __init__(self, lang:LANGUAGES='en'):
         self.players = []
         self.places = []
         self.purses = []
         self.in_penalty_box = []
+        self.lang = lang
 
         self.pop_questions = []
         self.science_questions = []
