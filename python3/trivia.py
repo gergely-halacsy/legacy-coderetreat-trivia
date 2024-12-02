@@ -4,7 +4,7 @@ from i18n import LANGUAGES, I18n
 
 
 class Game:
-    def __init__(self, lang:LANGUAGES='de'):
+    def __init__(self, lang:LANGUAGES='en'):
         self.players = []
         self.places = []
         self.purses = []
@@ -25,11 +25,12 @@ class Game:
             self.sports_questions.append(f"{self.i18n.t('Sports Question')} %s" % i)
             self.rock_questions.append(self.create_rock_question(i))
 
-    def create_rock_question(self, index):
+    @staticmethod
+    def create_rock_question(index):
         return "Rock Question %s" % index
 
     def is_playable(self):
-        return self.how_many_players >= 2
+        return self.num_players >= 2
 
     def add(self, player_name):
         self.players.append(player_name)
@@ -42,12 +43,12 @@ class Game:
         return True
 
     @property
-    def how_many_players(self):
+    def num_players(self):
         return len(self.players)
 
     @property
     def num_fields(self):
-        return 16 if self.lang == 'de' else 12
+        return 16 if self.i18n.lang == 'de' else 12
 
     def roll(self, roll):
         if not self.is_playable():
