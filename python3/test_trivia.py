@@ -6,6 +6,8 @@ from contextlib import contextmanager
 import io
 import sys
 
+from approvaltests.approvals import verify
+
 
 @contextmanager
 def redirect_stdout():
@@ -21,7 +23,7 @@ def test_adding_player():
     with redirect_stdout() as output:
         game = Game()
         game.add('Chet')
-        assert output.getvalue() == 'Chet was added\nThey are player number 1\n'
+        verify(output.getvalue())
 
 
 def test_create_rock_question():

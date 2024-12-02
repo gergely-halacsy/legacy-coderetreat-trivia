@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.13"
 pytest = "^8.3.4"
+approvaltests = "^14.2.0"
+pytest-approvaltests = "^0.2.4"
 
 
 [build-system]
