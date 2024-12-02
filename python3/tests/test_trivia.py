@@ -69,3 +69,12 @@ def test_roll_in_penalty_box_get_out():
     with redirect_stdout() as output:
         game.roll(5)
         verify(output.getvalue())
+
+
+def test_wrong_answer():
+    game = Game()
+    game.add('Chet')
+    with redirect_stdout() as output:
+        result = game.wrong_answer()
+        verify(output.getvalue())
+        assert result
