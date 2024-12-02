@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 
+from typing import Literal
+
+
+LANGUAGES = Literal["en", "de", "hu"]
+
+
 class Game:
-    def __init__(self):
+    def __init__(self, lang: LANGUAGES = "en"):
         self.players = []
         self.places = []
         self.purses = []
