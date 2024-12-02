@@ -93,6 +93,7 @@ def test_roll():
 
 def test_roll_in_penalty_box():
     game = Game()
+    game.add('Pat')
     game.add('Chet')
     game.wrong_answer()
     with redirect_stdout() as output:
@@ -102,6 +103,7 @@ def test_roll_in_penalty_box():
 
 def test_roll_in_penalty_box_get_out():
     game = Game()
+    game.add('foobar')
     game.add('Chet')
     game.wrong_answer()
     with redirect_stdout() as output:
